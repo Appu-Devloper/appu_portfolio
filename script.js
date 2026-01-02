@@ -120,57 +120,6 @@ projectCarousels.forEach((carousel) => {
   updateButtons();
 });
 
-if (form && note) {
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
 
-    const name = form.elements['name'].value.trim();
-    const email = form.elements['email'].value.trim();
-    const message = form.elements['message'].value.trim();
 
-    if (!name || !email || !message) {
-      note.textContent = 'Please fill in all fields before sending.';
-      note.style.color = '#c77a3f';
-      return;
-    }
-
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if (!emailOk) {
-      note.textContent = 'Please enter a valid email address.';
-      note.style.color = '#c77a3f';
-      return;
-    }
-
-    const submitButton = form.querySelector('button[type="submit"]');
-    if (submitButton) {
-      submitButton.disabled = true;
-    }
-
-    note.textContent = 'Sending your message...';
-    note.style.color = '#0f3d3e';
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message.');
-      }
-
-      note.textContent = 'Thanks! Your message has been sent.';
-      note.style.color = '#0f3d3e';
-      form.reset();
-    } catch (error) {
-      note.textContent = 'Sorry, something went wrong sending your message.';
-      note.style.color = '#c77a3f';
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-      }
-    }
-  });
-}
 
