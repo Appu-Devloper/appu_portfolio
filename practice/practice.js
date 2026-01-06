@@ -797,26 +797,6 @@ if (practiceApp) {
     });
   };
 
-  applyFilter();
-  selectProgram(programs[0].id);
-
-  if (searchInput) {
-    searchInput.addEventListener('input', applyFilter);
-  }
-
-  runBtn.addEventListener('click', runAll);
-  stepBtn.addEventListener('click', stepOnce);
-  autoBtn.addEventListener('click', () => {
-    if (intervalId) {
-      return;
-    }
-    intervalId = setInterval(stepOnce, 700);
-  });
-  pauseBtn.addEventListener('click', stopAuto);
-  resetBtn.addEventListener('click', resetAll);
-}
-
-
   const escapeHtml = (text) => {
     return text
       .replace(/&/g, '&amp;')
@@ -848,10 +828,6 @@ if (practiceApp) {
     return map;
   };
 
-  programs.forEach((program) => {
-    program.lineMap = createLineMap(program.code, program.lineMatches);
-  });
-
   function renderCode(lineNumber) {
     if (!codeEl) {
       return;
@@ -871,3 +847,26 @@ if (practiceApp) {
       }
     }
   }
+
+  programs.forEach((program) => {
+    program.lineMap = createLineMap(program.code, program.lineMatches);
+  });
+
+  applyFilter();
+  selectProgram(programs[0].id);
+
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilter);
+  }
+
+  runBtn.addEventListener('click', runAll);
+  stepBtn.addEventListener('click', stepOnce);
+  autoBtn.addEventListener('click', () => {
+    if (intervalId) {
+      return;
+    }
+    intervalId = setInterval(stepOnce, 700);
+  });
+  pauseBtn.addEventListener('click', stopAuto);
+  resetBtn.addEventListener('click', resetAll);
+}
