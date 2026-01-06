@@ -852,7 +852,7 @@ if (practiceApp) {
     program.lineMap = createLineMap(program.code, program.lineMatches);
   });
 
-  const renderCode = (lineNumber) => {
+  function renderCode(lineNumber) {
     if (!codeEl) {
       return;
     }
@@ -870,4 +870,4 @@ if (practiceApp) {
         activeLine.scrollIntoView({ block: 'center', behavior: 'smooth' });
       }
     }
-  };
+  }
