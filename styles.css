@@ -910,9 +910,7 @@ main {
 }
 
 .sticky-runner {
-  position: sticky;
-  top: 90px;
-  z-index: 2;
+  position: static;
 }
 
 .practice-card {
