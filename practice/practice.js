@@ -843,4 +843,10 @@ if (practiceApp) {
         return `<span class="code-line${active}" data-line="${number}"><span class="line-no">${number}</span><span class="line-text">${escapeHtml(line)}</span></span>`;
       })
       .join('\n');
+    if (lineNumber) {
+      const activeLine = codeEl.querySelector(`[data-line="${lineNumber}"]`);
+      if (activeLine) {
+        activeLine.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }
+    }
   };

@@ -902,15 +902,11 @@ main {
   font-size: 0.95rem;
 }
 
-.practice-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  align-items: start;
-}
-
-.sticky-runner {
-  position: static;
+.practice-runner,
+.practice-panel {
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 0;
 }
 
 .practice-card {

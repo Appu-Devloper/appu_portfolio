@@ -46,69 +46,67 @@
     </section>
 
     <section class="section">
-      <div class="practice-layout reveal">
-        <div class="practice-runner sticky-runner">
-          <div class="practice-card runner-card">
-            <div class="runner-header">
-              <div>
-                <p class="repo-label">Selected program</p>
-                <h3 id="program-title">armstrong.c</h3>
-                <p class="program-note" id="program-note">Introduce bugs in programs</p>
-              </div>
-              <span class="tag" id="program-tag">Debug practice</span>
+      <div class="practice-runner reveal">
+        <div class="practice-card runner-card">
+          <div class="runner-header">
+            <div>
+              <p class="repo-label">Selected program</p>
+              <h3 id="program-title">armstrong.c</h3>
+              <p class="program-note" id="program-note">Introduce bugs in programs</p>
             </div>
+            <span class="tag" id="program-tag">Debug practice</span>
+          </div>
 
-            <div class="code-block">
-              <pre id="code-block"></pre>
+          <div class="code-block">
+            <pre id="code-block"></pre>
+          </div>
+
+          <div class="input-panel">
+            <div class="input-grid" id="input-fields"></div>
+            <div class="control-bar">
+              <button class="btn primary" id="run-btn" type="button">Run</button>
+              <button class="btn ghost" id="step-btn" type="button">Step</button>
+              <button class="btn ghost" id="auto-btn" type="button">Auto</button>
+              <button class="btn ghost" id="pause-btn" type="button">Pause</button>
+              <button class="btn ghost" id="reset-btn" type="button">Stop</button>
             </div>
+          </div>
 
-            <div class="input-panel">
-              <div class="input-grid" id="input-fields"></div>
-              <div class="control-bar">
-                <button class="btn primary" id="run-btn" type="button">Run</button>
-                <button class="btn ghost" id="step-btn" type="button">Step</button>
-                <button class="btn ghost" id="auto-btn" type="button">Auto</button>
-                <button class="btn ghost" id="pause-btn" type="button">Pause</button>
-                <button class="btn ghost" id="reset-btn" type="button">Stop</button>
-              </div>
+          <div class="runner-output">
+            <div class="current-step">
+              <p class="repo-label">Current step</p>
+              <p id="current-step-text">Select a program and click Step.</p>
             </div>
-
-            <div class="runner-output">
-              <div class="current-step">
-                <p class="repo-label">Current step</p>
-                <p id="current-step-text">Select a program and click Step.</p>
+            <div class="console" id="console">Console ready.</div>
+            <div class="step-panel">
+              <div class="step-header">
+                <span id="step-status">Steps ready</span>
+                <span id="step-count">0/0</span>
               </div>
-              <div class="console" id="console">Console ready.</div>
-              <div class="step-panel">
-                <div class="step-header">
-                  <span id="step-status">Steps ready</span>
-                  <span id="step-count">0/0</span>
-                </div>
-                <ol class="step-list" id="step-list"></ol>
-              </div>
+              <ol class="step-list" id="step-list"></ol>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="practice-panel">
-          <div class="practice-card">
-            <div class="practice-card-header">
-              <div>
-                <p class="repo-label">Repository</p>
-                <h3>C Practice Programs</h3>
-              </div>
-              <span class="repo-time">Initial commit - 9 years ago</span>
+      <div class="practice-panel reveal">
+        <div class="practice-card">
+          <div class="practice-card-header">
+            <div>
+              <p class="repo-label">Repository</p>
+              <h3>C Practice Programs</h3>
             </div>
-            <div class="practice-toolbar">
-              <label class="practice-search">
-                <span>Search programs</span>
-                <input id="practice-search" type="search" placeholder="Search by file or note" />
-              </label>
-              <div class="practice-count" id="practice-count">Showing 0 programs</div>
-            </div>
-            <p class="practice-hint">Click any card to load it into the debugger above.</p>
-            <div class="practice-grid" id="practice-grid"></div>
+            <span class="repo-time">Initial commit - 9 years ago</span>
           </div>
+          <div class="practice-toolbar">
+            <label class="practice-search">
+              <span>Search programs</span>
+              <input id="practice-search" type="search" placeholder="Search by file or note" />
+            </label>
+            <div class="practice-count" id="practice-count">Showing 0 programs</div>
+          </div>
+          <p class="practice-hint">Click any card to load it into the debugger above.</p>
+          <div class="practice-grid" id="practice-grid"></div>
         </div>
       </div>
       <noscript>
