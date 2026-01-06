@@ -606,12 +606,21 @@ if (practiceApp) {
         program.note.toLowerCase().includes(query)
       );
     });
-    renderProgramGrid(filtered);
+  renderProgramGrid(filtered);
     if (countEl) {
       countEl.textContent = `Showing ${filtered.length} program${filtered.length === 1 ? '' : 's'}`;
     }
     highlightActive(currentProgram.id);
   };
+
+  if (gridEl) {
+    gridEl.addEventListener('click', (event) => {
+      const card = event.target.closest('.program-card');
+      if (card && card.dataset.program) {
+        selectProgram(card.dataset.program);
+      }
+    });
+  }
 
   const renderInputs = () => {
     inputEl.innerHTML = '';
@@ -687,7 +696,7 @@ if (practiceApp) {
     });
     output = result.output;
     stepIndex = 0;
-    currentLine = null;
+    currentLine = currentProgram.lineMap.input || currentProgram.lineMap.default;
     setConsole(['Console ready.']);
     renderSteps();
     updateStatus();
@@ -698,6 +707,7 @@ if (practiceApp) {
   };
 
   const stepOnce = () => {
+    try {
     if (!steps.length) {
       buildSimulation();
     }
@@ -717,9 +727,14 @@ if (practiceApp) {
       appendConsole(`Output: ${output}`);
       stopAuto();
     }
+    } catch (error) {
+      setConsole([`Error: ${error.message || error}`]);
+      stopAuto();
+    }
   };
 
   const runAll = () => {
+    try {
     buildSimulation();
     setConsole(['Console ready.']);
     steps.forEach((step, idx) => {
@@ -734,6 +749,9 @@ if (practiceApp) {
     renderCode(currentLine);
     renderSteps();
     updateStatus();
+    } catch (error) {
+      setConsole([`Error: ${error.message || error}`]);
+    }
   };
 
   const resetAll = () => {
@@ -741,7 +759,7 @@ if (practiceApp) {
     steps = [];
     stepIndex = 0;
     output = '';
-    currentLine = null;
+    currentLine = currentProgram?.lineMap?.input || currentProgram?.lineMap?.default || null;
     setConsole(['Console ready.']);
     if (currentStepTextEl) {
       currentStepTextEl.textContent = 'Select a program and click Step.';
@@ -760,10 +778,13 @@ if (practiceApp) {
     titleEl.textContent = program.file;
     noteEl.textContent = program.note;
     tagEl.textContent = 'Debug practice';
-    renderCode(currentLine);
     renderInputs();
     resetAll();
+    if (currentStepTextEl) {
+      currentStepTextEl.textContent = `Loaded ${program.file}. Click Step to begin.`;
+    }
     highlightActive(id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const highlightActive = (id) => {
