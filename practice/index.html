@@ -47,28 +47,7 @@
 
     <section class="section">
       <div class="practice-layout reveal">
-        <div class="practice-panel">
-          <div class="practice-card">
-            <div class="practice-card-header">
-              <div>
-                <p class="repo-label">Repository</p>
-                <h3>C Practice Programs</h3>
-              </div>
-              <span class="repo-time">Initial commit - 9 years ago</span>
-            </div>
-            <div class="practice-toolbar">
-              <label class="practice-search">
-                <span>Search programs</span>
-                <input id="practice-search" type="search" placeholder="Search by file or note" />
-              </label>
-              <div class="practice-count" id="practice-count">Showing 0 programs</div>
-            </div>
-            <p class="practice-hint">Click any card to load it into the debugger below.</p>
-            <div class="practice-grid" id="practice-grid"></div>
-          </div>
-        </div>
-
-        <div class="practice-runner">
+        <div class="practice-runner sticky-runner">
           <div class="practice-card runner-card">
             <div class="runner-header">
               <div>
@@ -95,6 +74,10 @@
             </div>
 
             <div class="runner-output">
+              <div class="current-step">
+                <p class="repo-label">Current step</p>
+                <p id="current-step-text">Select a program and click Step.</p>
+              </div>
               <div class="console" id="console">Console ready.</div>
               <div class="step-panel">
                 <div class="step-header">
@@ -104,6 +87,27 @@
                 <ol class="step-list" id="step-list"></ol>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="practice-panel">
+          <div class="practice-card">
+            <div class="practice-card-header">
+              <div>
+                <p class="repo-label">Repository</p>
+                <h3>C Practice Programs</h3>
+              </div>
+              <span class="repo-time">Initial commit - 9 years ago</span>
+            </div>
+            <div class="practice-toolbar">
+              <label class="practice-search">
+                <span>Search programs</span>
+                <input id="practice-search" type="search" placeholder="Search by file or note" />
+              </label>
+              <div class="practice-count" id="practice-count">Showing 0 programs</div>
+            </div>
+            <p class="practice-hint">Click any card to load it into the debugger above.</p>
+            <div class="practice-grid" id="practice-grid"></div>
           </div>
         </div>
       </div>
