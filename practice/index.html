@@ -54,36 +54,44 @@
               <h3 id="program-title">armstrong.c</h3>
               <p class="program-note" id="program-note">Introduce bugs in programs</p>
             </div>
-            <span class="tag" id="program-tag">Debug practice</span>
+            <span class="tag" id="program-tag">Practice</span>
           </div>
-
-          <div class="code-block">
-            <pre id="code-block"></pre>
-          </div>
-
-          <div class="input-panel">
-            <div class="input-grid" id="input-fields"></div>
-            <div class="control-bar">
-              <button class="btn primary" id="run-btn" type="button">Run</button>
-              <button class="btn ghost" id="step-btn" type="button">Step</button>
-              <button class="btn ghost" id="auto-btn" type="button">Auto</button>
-              <button class="btn ghost" id="pause-btn" type="button">Pause</button>
-              <button class="btn ghost" id="reset-btn" type="button">Stop</button>
-            </div>
-          </div>
-
-          <div class="runner-output">
-            <div class="current-step">
-              <p class="repo-label">Current step</p>
-              <p id="current-step-text">Select a program and click Step.</p>
-            </div>
-            <div class="console" id="console">Console ready.</div>
-            <div class="step-panel">
-              <div class="step-header">
-                <span id="step-status">Steps ready</span>
-                <span id="step-count">0/0</span>
+          <div class="runner-body">
+            <div class="runner-left">
+              <div class="input-panel">
+                <div class="input-grid" id="input-fields"></div>
+                <div class="control-bar">
+                  <button class="btn primary" id="run-btn" type="button">Run</button>
+                  <button class="btn ghost" id="step-btn" type="button">Step</button>
+                  <button class="btn ghost" id="auto-btn" type="button">Auto</button>
+                  <button class="btn ghost" id="pause-btn" type="button">Pause</button>
+                  <button class="btn ghost" id="reset-btn" type="button">Stop</button>
+                </div>
               </div>
-              <ol class="step-list" id="step-list"></ol>
+
+              <div class="runner-output">
+                <div class="current-step">
+                  <p class="repo-label">Current step</p>
+                  <p id="current-step-text">Select a program and click Step.</p>
+                </div>
+                <div class="console" id="console">Console ready.</div>
+                <div class="step-panel">
+                  <div class="step-header">
+                    <span id="step-status">Steps ready</span>
+                    <span id="step-count">0/0</span>
+                  </div>
+                  <ol class="step-list" id="step-list"></ol>
+                </div>
+              </div>
+            </div>
+            <div class="runner-right">
+              <div class="code-toolbar">
+                <span class="repo-label">Source code</span>
+                <button class="btn ghost btn-copy" id="copy-code" type="button">Copy code</button>
+              </div>
+              <div class="code-block">
+                <pre id="code-block"></pre>
+              </div>
             </div>
           </div>
         </div>

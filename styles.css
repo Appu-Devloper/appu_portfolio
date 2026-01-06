@@ -1002,25 +1002,6 @@ main {
   font-size: 1rem;
 }
 
-.program-code {
-  border-radius: 12px;
-  border: 1px solid rgba(13, 59, 60, 0.15);
-  background: #0f1213;
-  color: #f2f2f2;
-  padding: 12px;
-  font-family: Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  max-height: 220px;
-  overflow: auto;
-  white-space: pre-wrap;
-}
-
-.program-actions {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .practice-note {
   color: var(--muted);
 }
@@ -1034,6 +1015,34 @@ main {
 .runner-card {
   display: grid;
   gap: 18px;
+}
+
+.runner-body {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.runner-left {
+  display: grid;
+  gap: 18px;
+}
+
+.runner-right {
+  display: grid;
+  gap: 12px;
+}
+
+.code-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-copy {
+  padding: 8px 16px;
 }
 
 .runner-header {
@@ -1209,8 +1218,8 @@ main {
     align-items: flex-start;
   }
 
-  .sticky-runner {
-    position: static;
+  .runner-body {
+    grid-template-columns: 1fr;
   }
 }
 

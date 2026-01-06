@@ -14,6 +14,7 @@ if (practiceApp) {
   const stepStatusEl = document.getElementById('step-status');
   const stepCountEl = document.getElementById('step-count');
   const currentStepTextEl = document.getElementById('current-step-text');
+  const copyCodeBtn = document.getElementById('copy-code');
 
   const runBtn = document.getElementById('run-btn');
   const stepBtn = document.getElementById('step-btn');
@@ -584,15 +585,7 @@ if (practiceApp) {
           </div>
           <span class="practice-time">${program.updated}</span>
         </div>
-        <div class="program-actions">
-          <button type="button" class="btn primary program-load">Debug in runner</button>
-        </div>
       `;
-      const loadBtn = card.querySelector('.program-load');
-      loadBtn.addEventListener('click', (event) => {
-        event.stopPropagation();
-        selectProgram(program.id);
-      });
       card.addEventListener('click', () => selectProgram(program.id));
       gridEl.appendChild(card);
     });
@@ -777,7 +770,7 @@ if (practiceApp) {
     currentProgram = program;
     titleEl.textContent = program.file;
     noteEl.textContent = program.note;
-    tagEl.textContent = 'Debug practice';
+    tagEl.textContent = 'Practice';
     renderInputs();
     resetAll();
     if (currentStepTextEl) {
@@ -848,6 +841,23 @@ if (practiceApp) {
     }
   }
 
+  const copyCode = async () => {
+    if (!navigator.clipboard) {
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(currentProgram.code);
+      if (copyCodeBtn) {
+        copyCodeBtn.textContent = 'Copied';
+        setTimeout(() => {
+          copyCodeBtn.textContent = 'Copy code';
+        }, 1200);
+      }
+    } catch (error) {
+      setConsole([`Error: ${error.message || error}`]);
+    }
+  };
+
   programs.forEach((program) => {
     program.lineMap = createLineMap(program.code, program.lineMatches);
   });
@@ -869,4 +879,7 @@ if (practiceApp) {
   });
   pauseBtn.addEventListener('click', stopAuto);
   resetBtn.addEventListener('click', resetAll);
+  if (copyCodeBtn) {
+    copyCodeBtn.addEventListener('click', copyCode);
+  }
 }
