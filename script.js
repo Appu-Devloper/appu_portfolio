@@ -32,20 +32,6 @@ if (revealElements.length) {
   revealElements.forEach((el) => observer.observe(el));
 }
 
-const parallaxItems = document.querySelectorAll('[data-parallax]');
-if (parallaxItems.length) {
-  const handleParallax = () => {
-    const scrollTop = window.scrollY;
-    parallaxItems.forEach((item) => {
-      const speed = Number(item.dataset.parallax) || 0.1;
-      item.style.setProperty('--parallax-offset', `${scrollTop * speed}px`);
-    });
-  };
-
-  window.addEventListener('scroll', handleParallax, { passive: true });
-  handleParallax();
-}
-
 const projectMedia = document.querySelectorAll('.project-media');
 projectMedia.forEach((media) => {
   const asset = media.dataset.asset;
@@ -119,7 +105,6 @@ projectCarousels.forEach((carousel) => {
   window.addEventListener('resize', updateButtons);
   updateButtons();
 });
-
 
 
 
